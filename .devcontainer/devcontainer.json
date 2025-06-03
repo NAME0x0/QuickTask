@@ -1,0 +1,25 @@
+{
+    "name": "QuickTask - Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "eamodio.gitlens",
+                "usernamehw.errorlens",
+                "mikestead.dotenv",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "njpwerner.autodocstring",
+                "vscode-icons-team.vscode-icons",
+                "aaron-bond.better-comments",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+
+    // Install Ollama
+    "updateContentCommand": "curl -fsSL https://ollama.com/install.sh | sh",
+
+    // Install Python dependencies
+    "postStartCommand": "pip install -r requirements.txt"
+}

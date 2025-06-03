@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <!-- Placeholder for actual license -->
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/NAME0x0/QuickTask)
+
 ## 1. Overview
 
 **QuickTask** is a desktop application designed to allow users to enter free-form task descriptions in natural language. The application parses this input into structured task data (action item, date, time, and context/category) and stores tasks locally using SQLite by default, with an option for JSON. The primary interface for the Minimum Viable Product (MVP) is a Command-Line Interface (CLI).
