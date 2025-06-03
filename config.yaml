@@ -1,0 +1,52 @@
+model:
+  # path: "./models/gemma-3n-quantized.pt"  # Path for direct Hugging Face model loading (now secondary)
+  # tokenizer: "google/gemma_tokenizer"      # Tokenizer for direct loading (now secondary)
+  
+  ollama_model_name: "phi4-mini-reasoning:latest" # USER: Ensure this model is pulled in Ollama
+  # ^^^ USER: Replace with the exact model tag you have pulled in Ollama e.g., from `ollama list`
+  ollama_api_url: "http://localhost:11434"    # Default Ollama API endpoint
+  # device: "cpu"                           # Ollama handles device management; this is informational if kept
+  # use_quantization: True                  # Ollama models are typically pre-quantized
+  max_new_tokens: 250 # Increased for potential tool descriptions, thoughts, and JSON output
+  temperature: 0.2    # Slightly higher if we want a bit more variability for agentic thought, but still low for factuality
+
+storage:
+  type: "sqlite"                        # or "json"
+  sqlite_path: "./tasks.db"             # Relative to project root
+  json_path: "./tasks.json"             # Relative to project root
+
+locale:
+  timezone: "Asia/Dubai"
+  date_format: "%Y-%m-%d"
+  time_format: "%H:%M"
+  default_time: "09:00" # Default time if LLM doesn't extract one but extracts a date
+
+logging:
+  log_file: "./todo.log"                 # Relative to project root
+  log_level: "INFO"                     # Default log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  console_log_level: "WARNING"          # Console log level (INFO, WARNING, ERROR, CRITICAL)
+  max_bytes: 1048576                    # 1 MB for log file size
+  backup_count: 3                       # Number of old log files to keep
+
+cli:
+  table_format: "grid"                  # Default table format for `list-tasks` (e.g., grid, simple, psql) 
+
+# Agent/Tools Configuration (NEW - placeholders)
+# This section will be used if/when agentic capabilities are added
+agent:
+  max_iterations: 3 # Max number of LLM-tool cycles per user query before failing or giving a partial answer
+  # The LLM will be instructed about available tools in its system prompt.
+  # Tool implementation will be in utils.py or a dedicated tools.py.
+  tools:
+    web_search:
+      enabled: true
+      # Default engine is duckduckgo_search (no API key needed)
+      # Future: Add options for other engines and API keys if required
+      # engine: "duckduckgo_search" 
+      # num_results: 3 # Number of search results to return to the LLM
+    # Add other general-purpose tools here if needed in the future, e.g.:
+    # get_current_time:
+    #   enabled: true
+    # prayer_times: # Example specific tool
+      # enabled: true
+      # api_url: "https://api.aladhan.com/v1/timingsByCity" 

@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Database files
+tasks.db
+tasks.json
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+test_utils.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE-specific
+.idea/
+.vscode/
+
+# Model files (if large and not managed by Git LFS, user should uncomment)
+# models/*.pt
+# models/*.bin
+# models/*.gguf
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+*.cover
+*.prof
+*.lprof
+*.out
+
+# Temporary test files (if named consistently)
+test_*.db
+test_*.json
+test_*.csv
+dummy_*.txt
+dummy_*.pt
+dummy_tokenizer_path
+
+# If you create other specific temp dirs for tests
+# test_db_dir/ 

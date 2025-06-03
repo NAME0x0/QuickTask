@@ -1,0 +1,18 @@
+# Core application dependencies
+dateparser>=1.1.8
+python-dateutil>=2.8.2
+tabulate>=0.9.0
+pytz>=2023.3
+PyYAML>=6.0 # For config_manager.py
+requests>=2.25.0 # For Ollama API communication
+duckduckgo_search>=5.0.0 # For web search tool
+
+# sqlite3 is part of Python stdlib, no pip install required
+
+# For development/testing
+pytest>=7.0.0
+# unittest.mock is part of Python stdlib (for Python 3.3+)
+
+# Removed: torch and transformers, as LLM inference is now delegated to Ollama
+# torch>=2.0.0
+# transformers>=4.32.0 
